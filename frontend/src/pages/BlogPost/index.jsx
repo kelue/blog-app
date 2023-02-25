@@ -14,7 +14,7 @@ const BlogPost = () => {
         <GoBack />
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
-              <div className="col-12">
+              <div className="col-12 col-lg-8">
               <div className="card bg-dark text-white rounded-3">
                   <div className="card-body p-5 text-center">
                     <PostDetails />

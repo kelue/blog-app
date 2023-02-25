@@ -1,0 +1,19 @@
+QUERIES FOR BLOG TAKE HOME
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    firstname TEXT NOT NULL,
+    lastname TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    role TEXT CHECK (role IN ('author', 'publisher'))
+);
+
+CREATE TABLE blog (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT NOT NULL,
+    email TEXT NOT NULL,
+    approved BOOLEAN NOT NULL,
+    FOREIGN KEY (email) REFERENCES users(email)
+);

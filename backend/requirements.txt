@@ -1,0 +1,10 @@
+Flask
+Jinja2
+python-dotenv
+Werkzeug
+PyJWT
+flask-jwt-extended
+MarkupSafe
+click
+Jinja2
+python-dotenv

@@ -7,16 +7,29 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp'
 import BlogPost from './pages/BlogPost';
 
-const App = () => (
-    <Container fluid='xl'>
+import useToken from './components/common/useToken'
+
+
+
+const App = () => {
+
+  const { token, removeToken, setToken } = useToken();
+
+return (
+    <Container fluid='xl' token={removeToken}>
        <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/blog/:id' element={< Blog />} />
-          <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignUp />} />
-          <Route path='/blogpost' element={<BlogPost />} />
+
+          {!token && token!=="" &&token!== undefined ?  
+          <Route path='/login' element={<Login setToken={setToken} />} />
+          :(
+                <Route exact path="/blogpost" element={<BlogPost token={token} setToken={setToken}/>}></Route>
+          )}
+          
       </Routes>
     </Container>
   );
-
+}
 export default App;
